@@ -9,10 +9,11 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink, createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { setContext } from 'apollo-link-context';
+import { GRAPHQL_ENDPOINT } from './constants'
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4001/private/graphql',
-});
+  uri: GRAPHQL_ENDPOINT,
+})
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -24,7 +25,7 @@ const authLink = setContext((_, { headers }) => {
       Authorization: token ? `${token}` : null,
     }
   }
-});
+})
 
 const client = new ApolloClient({
   // By default, this client will send queries to the
