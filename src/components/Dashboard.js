@@ -46,7 +46,7 @@ export class Dashboard extends Component {
       },
     })
     .then(({ data }) => {
-      localStorage.set('token', data.token)
+      localStorage.setItem('token', data.token)
     })
     .catch((error) => console.log('onSaveUsername error', error))
   }
