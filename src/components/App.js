@@ -6,15 +6,7 @@ import Loader from './Loader'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Gradient } from './styles'
-
-const QUERY_MYPROFILE = gql`
-  query {
-    getMyProfile {
-      username
-      email
-    }
-  }
-`
+import { QUERY_MYPROFILE } from '../queries'
 
 export class App extends Component {
   render() {
