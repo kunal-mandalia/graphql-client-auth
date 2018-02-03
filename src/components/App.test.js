@@ -16,44 +16,59 @@ describe(`<App .../>`, () => {
     let wrapper
     beforeEach(() => {
       props = {
-        data: {},
-        loading: true
+        data: {
+          loading: true          
+        },
       }
       wrapper = shallow(<App {...props} />)
     })
     it(`should pass`, () => {
       expect(true).toBeTruthy()
     })
-    // it('renders without crashing', () => {
-    //   const div = document.createElement('div')
-    //   ReactDOM.render(<App {...props} />, div)
-    //   ReactDOM.unmountComponentAtNode(div)
-    // })
-
-    // it(`renders Loader graphic`, () => {
-    //   expect(wrapper.find('Loader')).toHaveLength(1)
-    // })
-  })
-
-  describe(`given user is logged in`, () => {
-    let props = {}
-    let wrapper
-    beforeEach(() => {
-      props = {
-        data: {
-          getMyProfile: {
-            username: 'Kunal',
-            email: 'kunal.v.mandalia@gmail.com',
-          }
-        },
-        loading: false,
-      }
-      wrapper = shallow(<App {...props} />)
+    it('renders without crashing', () => {
+      const div = document.createElement('div')
+      ReactDOM.render(<App {...props} />, div)
+      ReactDOM.unmountComponentAtNode(div)
     })
 
-    // it(`should render Dashboard`, () => {
-    //   console.log('>>>', wrapper.find('#'))
-    //   expect(wrapper.dive().find('.dashboard')).toHaveLength(1)
-    // })
+    it(`renders Loader graphic`, () => {
+      expect(wrapper.find('Loader')).toHaveLength(1)
+    })
   })
+
+  // describe(`given user is not logged in`, () => {
+  //   const props = {
+  //     data: {
+  //       loading: false
+  //     }
+  //   }
+  //   const wrapper = shallow(<App {...props} />)
+  //   it(`should render Login component`, () => {
+  //     expect(wrapper.find('Login')).toHaveLength(1)
+  //   })
+  // })
+
+  // describe(`given user is logged in`, () => {
+  //   let props = {}
+  //   let wrapper
+  //   beforeEach(() => {
+  //     props = {
+  //       data: {
+  //         getMyProfile: {
+  //           username: 'Kunal',
+  //           email: 'kunal.v.mandalia@gmail.com',
+  //         },
+  //         loading: false,          
+  //       },
+  //     }
+  //     wrapper = shallow(<App {...props} />)
+  //   })
+
+  //   it(`should render Dashboard`, () => {
+  //     // console.log('>>>', wrapper.find('#'))
+  //     expect(wrapper.find('Dashboard')).toHaveLength(1)
+  //   })
+  // })
+
+
 })

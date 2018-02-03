@@ -3,14 +3,9 @@ import { mount } from 'enzyme'
 import { Login } from './Login'
 import { GRAPHQL_ENDPOINT } from '../constants'
 
-const props = {
-  client: {
-
-  },
-}
-
 describe(`<Login .../>`, () => {  
   it(`should allow user to specfy username & password`, () => {
+    const props = {}
     const wrapper = mount(<Login {...props} />)
     wrapper.find('#username').first().simulate('change', {target: {value: 'RobertMartin'}})
     wrapper.find('#password').first().simulate('change', {target: {value: 'Pass123'}})
@@ -19,6 +14,7 @@ describe(`<Login .../>`, () => {
   })
 
   describe(`successful login()`, () => {
+    const props = {}    
     beforeEach(() => {
       fetch.mockResponse(
         '{ "data": {"login": "tokenvalue" }}',
@@ -45,8 +41,9 @@ describe(`<Login .../>`, () => {
   })
 
   describe(`unsuccessful login()`, () => {
+    const props = {}    
     beforeEach(() => {
-      fetch.mockReject(() => { throw new Error('m') })
+      fetch.mockReject(() => { throw new Error(`Unsuccessful login`) })
     })
 
     it(`should not persist token if login unsuccessful`, async () => {
