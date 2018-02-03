@@ -5,6 +5,7 @@ import {
   Container,
   TextInput,
   Button,
+  Error
 } from './styles'
 import { GRAPHQL_ENDPOINT } from '../constants'
 import {
@@ -39,7 +40,6 @@ export class Dashboard extends Component {
         const data = proxy.readQuery({ query: QUERY_MYPROFILE });
     
         // Add our todo from the mutation to the end.
-        console.log('>>> reading', data)
         data.getMyProfile.username = username
     
         // Write our data back to the cache.
@@ -47,10 +47,9 @@ export class Dashboard extends Component {
       },
     })
     .then(({ data }) => {
-      console.log('data', data)
       localStorage.set('token', data.token)
     })
-    .catch((error) => console.log(error))
+    .catch((error) => console.log('onSaveUsername error', error))
   }
 
   onLogout () {
@@ -59,9 +58,14 @@ export class Dashboard extends Component {
   }
 
   render() {
-    const { data: { getMyProfile: { username, email }}, loading} = this.props
+    const { data: { getMyProfile, loading, error }} = this.props
     const { newUsername } = this.state
-    console.log('GRAPHQL_ENDPOINT', GRAPHQL_ENDPOINT, process.env.NODE_ENV)
+
+    if (error) {
+      return <Error id='error'>{error.message}</Error>
+    }
+
+    const { username, email } = getMyProfile
     return (
       <Container id='dashboard' className='dashboard'>
         <h2>Dashboard</h2>
