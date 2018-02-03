@@ -65,7 +65,7 @@ export class Dashboard extends Component {
       <Container id='dashboard' className='dashboard'>
         <h2>Dashboard</h2>
         <p>Hello {username}</p>
-        <TextInput placeholder='New Username' onChange={this.onChangeUsername} />
+        <TextInput id='new-username' placeholder='New Username' onChange={this.onChangeUsername} value={this.state.newUsername} />
         <Button btnStyle='success' onClick={this.onSaveUsername} disabled={newUsername.length === 0}>Update Username</Button>
         <Button btnStyle='secondary' onClick={this.onLogout}>Log out</Button>
       </Container>
