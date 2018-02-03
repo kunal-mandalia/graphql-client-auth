@@ -72,3 +72,9 @@ export const Error = styled('div')`
   background-color: grey;
   padding: 40px;
 `
+export const Center = styled('div')`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+`
