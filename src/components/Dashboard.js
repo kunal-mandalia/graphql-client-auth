@@ -7,7 +7,6 @@ import {
   Button,
   Error
 } from './styles'
-import { GRAPHQL_ENDPOINT } from '../constants'
 import {
   QUERY_MYPROFILE,
   MUTATION_UPDATEUSERNAME

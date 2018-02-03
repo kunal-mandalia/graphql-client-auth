@@ -17,12 +17,8 @@ const QUERY_MYPROFILE = gql`
 `
 
 export class App extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
-    const { data: { getMyProfile, loading, errors } } = this.props
+    const { data: { getMyProfile, loading, error } } = this.props
     return (
       <div className="App">
         <Gradient>
