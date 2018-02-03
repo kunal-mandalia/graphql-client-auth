@@ -61,6 +61,7 @@ export class Dashboard extends Component {
   render() {
     const { data: { getMyProfile: { username, email }}, loading} = this.props
     const { newUsername } = this.state
+    console.log('GRAPHQL_ENDPOINT', GRAPHQL_ENDPOINT, process.env.NODE_ENV)
     return (
       <Container id='dashboard' className='dashboard'>
         <h2>Dashboard</h2>
