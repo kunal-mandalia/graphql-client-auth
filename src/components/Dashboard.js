@@ -45,8 +45,8 @@ export class Dashboard extends Component {
         proxy.writeQuery({ query: QUERY_MYPROFILE, data });
       },
     })
-    .then(({ data }) => {
-      localStorage.setItem('token', data.token)
+    .then(({ data: { updateUsername: { token }} }) => {
+      localStorage.setItem('token', token)
     })
     .catch((error) => console.log('onSaveUsername error', error))
   }
