@@ -1,7 +1,6 @@
 import React from 'react'
 import { Dashboard } from './Dashboard'
 import { shallow } from 'enzyme'
-import { QUERY_MYPROFILE } from '../queries'
 
 describe(`<Dashboard />`, () => {
   describe(`given query error`, () => {
