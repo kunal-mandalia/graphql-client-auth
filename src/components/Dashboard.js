@@ -38,10 +38,8 @@ export class Dashboard extends Component {
         // Read the data from our cache for this query.
         const data = proxy.readQuery({ query: QUERY_MYPROFILE });
     
-        // Add our todo from the mutation to the end.
-        data.getMyProfile.username = username
-    
         // Write our data back to the cache.
+        data.getMyProfile.username = username
         proxy.writeQuery({ query: QUERY_MYPROFILE, data });
       },
     })

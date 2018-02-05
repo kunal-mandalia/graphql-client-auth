@@ -38,6 +38,9 @@ describe(`<Dashboard />`, () => {
       const wrapper = shallow(<Dashboard {...props} />)
       wrapper.find('#new-username').simulate('change', {target: {value: newUsername}})
       await wrapper.find('#save-user-details').simulate('click')
+
+      // todo: verify username by decoding it and checking the username attribute matches newUsername
+      // but this can't be done as we're passing in a token directlty - it must be checked
       expect(localStorage.setItem).toBeCalledWith('token', 'dummy_token')
     })
   })
